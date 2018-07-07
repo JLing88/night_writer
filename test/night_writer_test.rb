@@ -14,4 +14,9 @@ class NightWriterTest < Minitest::Test
     assert_equal "Created braille.txt containing 256 characters", nw.print_message
   end
 
+  def test_file_object_is_created
+    nw = NightWriter.new
+    assert_instance_of File, nw.read_from_file
+  end
+
 end

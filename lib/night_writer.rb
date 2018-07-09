@@ -2,7 +2,7 @@
 
 class NightWriter
 
-  attr_reader :destination_file, :file_contents
+  attr_reader :file_contents
 
   def initialize
     @input_file = ARGV[0]
@@ -17,9 +17,9 @@ class NightWriter
   end
 
   def write_to_file
-    @destination_file = File.open(@output_file, "w")
-    @destination_file.write(@file_contents)
-    @destination_file.close
+    destination_file = File.open(@output_file, "w")
+    destination_file.write(@file_contents)
+    destination_file.close
     print_message
   end
 

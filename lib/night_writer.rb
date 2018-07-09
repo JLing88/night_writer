@@ -2,7 +2,7 @@
 
 class NightWriter
 
-  attr_reader :file_contents_string
+  attr_reader :input_string
 
   def initialize
     @input_file = ARGV[0]
@@ -12,7 +12,7 @@ class NightWriter
 
   def read_from_file
     file_input = File.open(@input_file, "r")
-    @input_string = file_input.read
+    @input_string = file_input.read.strip
     file_input.close
   end
 

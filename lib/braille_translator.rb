@@ -1,5 +1,7 @@
 class BrailleTranslator
 
+  attr_reader :letter_to_braille
+
   def initialize
     @letter_to_braille = {"a" => ["0.", "..", ".."],
                           "b" => ["0.", "0.", ".."],
@@ -29,7 +31,18 @@ class BrailleTranslator
                           "z" => [".0", "0.", "00"]
                           }
   end
+
+  def translate(string)
+    string_array = string.chars
+    braille_array = []
+    string_array.each do |character|
+      braille_array << @letter_to_braille[character]
+    end
+    braille_array
+  end
+
 end
+
 
 
 # string_array = @file_contents_string.chars

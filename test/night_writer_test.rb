@@ -7,6 +7,7 @@ class NightWriterTest < Minitest::Test
 
   def setup
     @nw = NightWriter.new
+    @translator = BrailleTranslator.new
   end
 
   def test_it_exists
@@ -19,8 +20,14 @@ class NightWriterTest < Minitest::Test
     assert_equal "Created 'output.txt' containing 2 characters", @nw.print_message
   end
 
-  def test_it_translate_one_letter_to_braille
-    dictionary = BrailleTranslator.new
-  end
+  # def test_it_translates_one_letter_to_braille
+  #   @translator = BrailleTranslator.new
+  #   @nw.read_from_file
+  #   assert_equal ["0.", "..", ".."], @translator.translate(@nw.input_string)
+  # end
 
+  def test_it_translates_more_than_one_letter_to_braille
+    @nw.read_from_file
+    assert_equal [["0.", "..", ".."], ["0.", "0.", ".."]], @translator.translate(@nw.input_string)
+  end
 end

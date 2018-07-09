@@ -24,6 +24,6 @@ class NightWriter
   end
 
   def print_message
-    "Created '#{@output_file}' containing #{@file_contents.length} characters"
+    puts "Created '#{@output_file}' containing #{@file_contents.length} characters"
   end
 end

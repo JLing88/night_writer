@@ -18,3 +18,16 @@ class BrailleTranslator
                           }
   end
 end
+
+
+string_array = @file_contents_string.chars
+
+braille_top_line = string_array.map do |character|
+  string_array[character] = @letter_to_braille[character][0]
+end
+braille_middle_line = string_array.map do |character|
+  string_array[character] = @letter_to_braille[character][1]
+end
+braille_bottom_line = string_array.map do |character|
+  string_array[character] = @letter_to_braille[character][2]
+end
